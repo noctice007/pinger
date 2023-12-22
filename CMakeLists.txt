@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.15)
+project(pinger CXX)
+set(CMAKE_CXX_STANDARD 23)
+find_package(fmt REQUIRED)
+find_package(Poco REQUIRED COMPONENTS Net Foundation)
+find_package(TBB REQUIRED)
+add_executable(${PROJECT_NAME} main.cpp)
+
+target_link_libraries(${PROJECT_NAME} fmt::fmt TBB::tbb Poco::Net Poco::Foundation)
+install(TARGETS ${PROJECT_NAME})
